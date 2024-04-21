@@ -13344,3 +13344,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.bg-gray {
+  background: rgb(82, 79, 79);
+}

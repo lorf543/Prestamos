@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+
+
+
+{% block title %}Registration{% endblock title %}
+
+{% block content %}
+        
+    <div class="container">
+        {% if messages %}
+            {% for message in messages  %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+      
+                  <div class="mb-md-5 mt-md-4 pb-5">
+      
+                    <h2 class="fw-bold mb-2">Registration Form</h2>
+                    <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                <form action="{% url 'register_user' %}" method="POST">
+                  {% csrf_token %}
+                        <div class="pb-1">
+                          {{form.username|as_crispy_field}}
+                          <div id="username_error" class="pb-3"></div>
+                        </div>
+
+                        {{form.password1|as_crispy_field}}
+                        {{form.password2|as_crispy_field}}
+                      
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+
+                </form>
+                  <div>
+                    <p class="mb-0 pt-3">Alerady have an Account? <a href="{% url 'login_user' %}" class="text-white-50 fw-bold">Sign In</a>
+                    </p>
+                  </div>
+                  
+      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authorization.apps.AuthorizationConfig',
+    'B_loan_tracker.apps.BLoanTrackerConfig',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'A_loan.urls'
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_URL = 'login_user/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login_user'
 
 TEMPLATES = [
     {
